@@ -80,13 +80,13 @@ const AboutMe = () => {
           </motion.div>
         </div>
 
-        {/* About Me Section */}
+        {/* About Me */}
         <div className="bg-blue-50 py-16 px-6 md:px-12">
           <motion.div 
             variants={itemVariants} 
             className="max-w-4xl mx-auto flex items-center space-x-8"
           >
-            <User className="text-blue-600 hidden md:block" size={64} />
+            <User className="text-blue-600 hidden md:block" size={256} />
             <div>
               <h3 className="text-3xl font-bold text-gray-800 mb-4">About Me</h3>
               <p className="text-gray-700 text-lg">
@@ -103,7 +103,7 @@ const AboutMe = () => {
         </div>
         <WavySeparator color1="#dbeafe" color2="#bfdbfe" />
 
-        {/* Skills Section */}
+        {/* Skills */}
         <div className="bg-purple-50 py-16 px-6 md:px-12">
           <motion.div 
             variants={itemVariants} 
@@ -125,18 +125,18 @@ const AboutMe = () => {
                 ))}
               </div>
             </div>
-            <Code className="text-purple-600 hidden md:block" size={64} />
+            <Code className="text-purple-600 hidden md:block" size={128} />
           </motion.div>
         </div>
         <WavySeparator color1="#fae6ff" color2="#f3d1ff" />
 
-        {/* Achievements Section */}
+        {/* Achievements */}
         <div className="bg-green-50 py-16 px-6 md:px-12">
           <motion.div 
             variants={itemVariants} 
             className="max-w-4xl mx-auto flex items-center space-x-8"
           >
-            <Award className="text-green-600 hidden md:block" size={64} />
+            <Award className="text-green-600 hidden md:block" size={192} />
             <div>
               <h3 className="text-3xl font-bold text-gray-800 mb-4">Achievements</h3>
               <p className="text-gray-700 text-lg mb-6">
@@ -164,7 +164,7 @@ const AboutMe = () => {
           </motion.div>
         </div>
 
-        {/* Contact Button */}
+        {/* Contact */}
         <div className="bg-white/80 backdrop-blur-lg py-12 text-center">
           <motion.div variants={itemVariants}>
             <Link 

@@ -47,7 +47,6 @@ const Contact = () => {
     // Validate form
     const errors = validateForm();
     if (Object.keys(errors).length > 0) {
-      // Handle validation errors (you might want to display these)
       console.log('Form validation errors:', errors);
       return;
     }
@@ -112,7 +111,6 @@ const Contact = () => {
         variants={containerVariants}
         className="bg-white/20 backdrop-blur-lg rounded-2xl shadow-2xl max-w-6xl w-full grid md:grid-cols-2 overflow-hidden"
       >
-        {/* Contact Information Section */}
         <motion.div 
           variants={itemVariants}
           className="bg-white/30 p-12 flex flex-col justify-center space-y-6 text-white"

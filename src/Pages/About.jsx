@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react';;
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { User, Code, Award } from 'lucide-react';
 import pimg from '../profile.jpg';
@@ -166,12 +167,12 @@ const AboutMe = () => {
         {/* Contact Button */}
         <div className="bg-white/80 backdrop-blur-lg py-12 text-center">
           <motion.div variants={itemVariants}>
-            <a 
-              href="/contact" 
+            <Link 
+              to="/contact" 
               className="bg-green-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition-colors"
             >
               Get in Touch
-            </a>
+            </Link>
           </motion.div>
         </div>
       </motion.div>

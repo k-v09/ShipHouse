@@ -15,8 +15,15 @@ const Projects = () => {
       title: "Sweet Portfolio Website",
       description: "So there's this website you should totally check out it's super cool...",
       technologies: ["React", "Tailwind", "Node.js", "Framer Motion"],
-      githubLink: "#",
+      githubLink: "https://github.com/k-v09/ShipHouse",
       liveLink: "https://noahivyl.com"
+    },
+    {
+      title: "VYL (Very Yucky Lang)",
+      description: "My own language, based on a combination of APL and set theory to give myself the ideal development experience!",
+      technologies: ["GoLang", "Interpreters", "Unit Testing", "Semantic Analysis", "AST"],
+      githubLink: "https://github.com/k-v09/VYL",
+      LiveLink: "#"
     },
     {
       title: "Synage",

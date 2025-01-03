@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Home, Code, User, Mail } from 'lucide-react';
+import { Home, Code, User, Mail, AudioWaveform } from 'lucide-react';
 
 const Navbar = () => {
   const location = useLocation();
@@ -26,6 +26,11 @@ const Navbar = () => {
       path: '/contact', 
       label: 'Contact', 
       icon: Mail 
+    },
+    {
+      path: '/fun',
+      label: "Fun",
+      icon: AudioWaveform
     }
   ];
 

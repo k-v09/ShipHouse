@@ -6,6 +6,7 @@ import AboutMe from './Pages/About.jsx';
 import Contact from './Pages/Contact.jsx';
 //import Transition from './Components/Transition.jsx';
 import Navbar from './Components/Navbar/';
+import ComponentSelector from './Pages/Fun.jsx';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<AboutMe />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/fun" element={<ComponentSelector />} />
       </Routes>
     </Router>
   );

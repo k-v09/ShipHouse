@@ -34,7 +34,7 @@ const ComponentSelector = () => {
   }, []);
 
   return (
-    <div class="bg-gradient-to-r from-purple-900 via-purple-800 to-emerald-900 w-screen h-screen"><div className="w-full max-w-4xl pt-20 mx-auto space-y-4">
+    <div class="bg-gradient-to-r from-purple-900 via-purple-800 to-emerald-900 w-full min-h-screen"><div className="w-full max-w-4xl pt-20 mx-auto space-y-4">
       <Select 
         label="Select Component" 
         value={activeComponent}

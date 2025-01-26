@@ -1,5 +1,6 @@
 import WavePropagation from '../Components/WaveProp.jsx';
 import BoidSimulation from '../Components/BoidSim.jsx';
+import Support from '../Components/Please.jsx';
 import { Select, SelectSection, SelectItem } from "@nextui-org/react";
 import React, { useState, useCallback } from 'react';
 
@@ -18,6 +19,10 @@ const ComponentSelector = () => {
       label: "Wave Propagation",
       component: <WavePropagation />
     },
+    help: {
+      label: "Support",
+      component: <Support />
+    }
   };
     /*const components = {
         none: { label: "Select a component", component: null },

@@ -21,7 +21,7 @@ const Projects = () => {
     {
       title: "VYL (Very Yucky Lang)",
       description: "My own language, based on a combination of APL and set theory to give myself the ideal development experience!",
-      technologies: ["GoLang", "Interpreters", "Unit Testing", "Semantic Analysis", "AST"],
+      technologies: ["GoLang", "Interpreters", "Compilers", "Semantic Analysis", "AST", "Unit Testing"],
       githubLink: "https://github.com/k-v09/VYL",
       LiveLink: "#"
     },
@@ -31,6 +31,13 @@ const Projects = () => {
       technologies: ["GoLang", "Python", "Unix Pipes", "Binary Encoding", "Harmonic Motion"],
       githubLink: "https://github.com/k-v09/Jen-R-8-R",
       liveLink: "https://github.com/k-v09/Jen-R-8-R"
+    },
+    {
+      title: "Fundamentals",
+      description: "A 3D audio visualization environment for immersive audio systems. Soon to have the optimal mix of math and music!",
+      technologies: ["Rust", "Bevy", "Linear Algebra", "Acoustics", "Game Development", "Compute Shaders"],
+      githubLink: "https://github.com/k-v09/funding",
+      liveLink: "https://github.com/k-v09/funding",
     },
     {
       title: "Readme Generator",

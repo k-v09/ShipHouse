@@ -1,88 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [status, setStatus] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
-    
-    return newErrors;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    // Validate form
-    const errors = validateForm();
-    if (Object.keys(errors).length > 0) {
-      console.log('Form validation errors:', errors);
-      return;
-    }
-
-    // Prevent multiple submissions
-    if (isSubmitting) return;
-
-    setIsSubmitting(true);
-    setStatus('');
-
-    try {
-      const response = await emailjs.send(
-        process.env.EMAILJS_SERVICE_ID,
-        process.env.EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message
-        },
-        process.env.EMAILJS_PUBLIC_KEY
-      );
-
-      // Success handling
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      
-    } catch (error) {
-      // Error handling
-      console.error('Email send error:', error);
-      setStatus('error');
-    } finally {
-      // Reset submission state
-      setIsSubmitting(false);
-    }
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -101,6 +21,12 @@ const Contact = () => {
       opacity: 1,
       transition: { duration: 0.5 }
     }
+  };
+
+  const handleMailto = () => {
+    const subject = encodeURIComponent("Let's Connect!");
+    const body = encodeURIComponent("Hi Noah,\n\nI'd love to connect with you.\n\nBest regards,");
+    window.location.href = `mailto:noah.sehman@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -156,79 +82,42 @@ const Contact = () => {
 
         <motion.div 
           variants={itemVariants}
-          className="p-12"
+          className="p-12 flex flex-col justify-center items-center space-y-8"
         >
-          <h2 className="text-4xl font-bold mb-6 text-white">Send a Message</h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-white mb-2">Name</label>
-              <input 
-                type="text" 
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-white/20 backdrop-blur-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-green-400"
-                placeholder="Your Name"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="email" className="block text-white mb-2">Email</label>
-              <input 
-                type="email" 
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-white/20 backdrop-blur-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-green-400"
-                placeholder="Your Email"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-white mb-2">Message</label>
-              <textarea 
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={4}
-                className="w-full p-3 rounded-lg bg-white/20 backdrop-blur-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-green-400"
-                placeholder="Your Message"
-              ></textarea>
-            </div>
-            
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className={`
-                w-full flex items-center justify-center p-3 rounded-lg transition-colors
-                ${isSubmitting 
-                  ? 'bg-gray-500 cursor-not-allowed' 
-                  : 'bg-green-500 hover:bg-green-600'
-                } 
-                text-white
-              `}
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold text-white">Let's Connect</h2>
+            <p className="text-white/80 text-lg">Ready to start a conversation? Send me an email!</p>
+          </div>
+          
+          <motion.button
+            onClick={handleMailto}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-12 py-6 rounded-2xl shadow-2xl transition-all duration-300 flex items-center space-x-4 text-xl font-semibold"
+          >
+            <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <MessageCircle size={28} className="relative z-10" />
+            <span className="relative z-10">Send Email</span>
+            <Send size={24} className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+          </motion.button>
+          
+          <div className="text-center space-y-2">
+            <p className="text-white/60 text-sm">or reach out directly at</p>
+            <motion.a 
+              href="mailto:noah.sehman@gmail.com"
+              whileHover={{ scale: 1.02 }}
+              className="text-green-300 hover:text-green-200 font-medium text-lg transition-colors underline decoration-green-300 hover:decoration-green-200"
             >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-
-            {/* Status Message */}
-            {status === 'success' && (
-              <div className="mt-4 p-3 bg-green-100 text-green-800 rounded flex items-center">
-                <CheckCircle className="mr-2" /> 
-                Message sent successfully!
-              </div>
-            )}
-            
-            {status === 'error' && (
-              <div className="mt-4 p-3 bg-red-100 text-red-800 rounded flex items-center">
-                <AlertCircle className="mr-2" /> 
-                Failed to send message. Please try again.
-              </div>
-            )}
-          </form>
+              noah.sehman@gmail.com
+            </motion.a>
+          </div>
+          
+          <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+            <div className="flex items-center space-x-3 text-white/80">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <p className="text-sm">Available for new opportunities</p>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </div>

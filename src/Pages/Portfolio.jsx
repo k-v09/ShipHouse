@@ -94,13 +94,25 @@ const Portfolio = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex justify-center space-x-6"
           >
-            <a href="https://github.com/k-v09" className="hover:text-pink-400 transition-colors">
+            <a
+              href="https://github.com/k-v09"
+              aria-label="Visit my GitHub profile"
+              className="hover:text-pink-400 transition-colors"
+            >
               <Github size={36} />
             </a>
-            <a href="https://www.linkedin.com/in/noah-sehman-1a6494258/" className="hover:text-pink-400 transition-colors">
+            <a
+              href="https://www.linkedin.com/in/noah-sehman-1a6494258/"
+              aria-label="Visit my LinkedIn profile"
+              className="hover:text-pink-400 transition-colors"
+            >
               <Linkedin size={36} />
             </a>
-            <a href="mailto:noah.sehman@gmail.com" className="hover:text-pink-400 transition-colors">
+            <a
+              href="mailto:noah.sehman@gmail.com"
+              aria-label="Send me an email"
+              className="hover:text-pink-400 transition-colors"
+            >
               <Mail size={36} />
             </a>
           </motion.div>
